@@ -28,6 +28,29 @@ import PIPView from 'react-native-pip';
 
 import Video from 'react-native-video';
 
+import MapTest from './MapTest';
+
+const VideoTest = (props) => {
+  console.log(`VideoTest: ${props.isContracted}`);
+  return(
+    <View
+      style={{
+        width: '100%',
+        height: '100%',
+        // backgroundColor: 'green',
+      }}
+    >
+      <Video
+        source={require('./Spring.mp4')}
+        style={{
+          width: '100%',
+          height: '100%',
+        }}
+      />
+    </View>
+  );
+}
+
 const App: () => React$Node = () => {
   return (
     <View
@@ -45,32 +68,15 @@ const App: () => React$Node = () => {
         }}
       />
       <PIPView
-        mainView={
-          <View
-            style={{
-              width: '100%',
-              height: '100%',
-              backgroundColor: 'red',
-            }}
-          >
-          </View>
+        style={{
+          width: '100%',
+          flex: 1,
+        }}
+        primaryView={
+          <VideoTest />
         }
-        miniView={
-          <View
-            style={{
-              width: '100%',
-              height: '100%',
-              // backgroundColor: 'green',
-            }}
-          >
-            <Video
-              source={require('./Spring.mp4')}
-              style={{
-                width: '100%',
-                height: '100%',
-              }}
-            />
-          </View>
+        secondaryView={
+          <MapTest />
         }
       />
     </View>
